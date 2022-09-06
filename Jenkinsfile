@@ -1,4 +1,4 @@
-pipeline {
+repipeline {
     agent any
 
     stages {
@@ -33,7 +33,7 @@ pipeline {
 
             steps {
                 
-                    echo "This is master branch"
+                    echo "This is feature branch"
                 }
             
         }
