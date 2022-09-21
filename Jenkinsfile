@@ -1,6 +1,8 @@
 pipeline {
-	agent any
+	agent {
+		label 'built-in'
 		customWorkspace '/mnt/demo'
+	}
 	stages {
 		stage ('SCM Checkout') {
 			steps {
