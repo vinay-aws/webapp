@@ -1,6 +1,6 @@
 pipeline {
 	agent any
-	customWorkspace '/mnt/demo'
+		customWorkspace '/mnt/demo'
 	stages {
 		stage ('SCM Checkout') {
 			steps {
