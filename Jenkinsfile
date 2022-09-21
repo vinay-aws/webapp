@@ -19,8 +19,8 @@ pipeline {
 		stage ('docker-build') {
 			steps {
 				sh '''service docker start
-						docker build -t mytomcat .
-							docker container run -itd -p 7775:8080 mytomcat '''
+				docker build -t mytomcat .
+				docker container run -itd -p 7775:8080 mytomcat '''
 			}
 		}
 	}
