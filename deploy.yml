@@ -21,8 +21,8 @@
         state: present
     - name: Start the container
       docker_container:
-        name: hariapp
-        image: "vinaydocker121/mytomcat:1.0.0"
+        name: vnyapp
+        image: "vinaydocker121/mytomcat:4.0.0"
         state: started
         published_ports:
           - 0.0.0.0:9559:8080
