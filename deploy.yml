@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: akashapp
-        image: "akash7775/mytomcat:7.0.0"
+        image: "akash7775/mytomcat:8.0.0"
         state: started
         published_ports:
           - 0.0.0.0:7776:8080
