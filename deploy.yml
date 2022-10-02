@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: vnyapp
-        image: "vinaydocker121/mytomcat:7.0.0"
+        image: "vinaydocker121/mytomcat:8.0.0"
         state: started
         published_ports:
           - 0.0.0.0:9559:8080
