@@ -1,9 +1,16 @@
 pipeline {
 	agent {
-		label {
+		node {
 			label 'built-in'
-			customWorkspace '/mnt/demo'
+			customWorkspace '/mnt/buildtool/demo'
 		}
+	}
+	tools {
+		maven 'maven'
+	}
+	environment {
+		tag = ""$BUILD_ID""
+		port = ""100$BUILD_ID""
 	}
 	stages {
 		stage ('SCM Checkout') {
@@ -19,8 +26,16 @@ pipeline {
 		stage ('docker-build') {
 			steps {
 				sh '''service docker start
-				docker build -t mytomcat .
-				docker container run -itd -p 7775:8080 mytomcat '''
+				docker build -t akash7775/mytomcat:$tag . '''
+				
+			}
+		}
+		stage ('docker-push') {
+			steps {
+				withCredentials([string(credentialsId: 'dockerpwd', variable: 'docker')]) {
+				sh "docker login -u akash7775 -p ${docker}"
+                		sh 'docker push akash7775/mytomcat:$tag'
+			}
 			}
 		}
 	}
