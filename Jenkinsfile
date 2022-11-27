@@ -9,7 +9,7 @@ pipeline {
 		maven 'maven'
 	}
 	environment {
-		tag = ""$BUILD_ID""
+		tag = "$BUILD_ID"
 		
 	}
 	stages {
