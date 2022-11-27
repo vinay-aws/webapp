@@ -1,6 +1,6 @@
 pipeline {
 	agent {
-		label {
+		node {
 			label 'built-in'
 			customWorkspace '/mnt/buildtool/demo'
 		}
@@ -34,7 +34,7 @@ pipeline {
 			steps {
 				withCredentials([string(credentialsId: 'dockerpwd', variable: 'docker')]) {
 				sh "docker login -u akash7775 -p ${docker}"
-                		sh 'docker push akash7775/mytomcat:$tag'
+                sh 'docker push akash7775/mytomcat:$tag'
 			}
 			}
 		}
