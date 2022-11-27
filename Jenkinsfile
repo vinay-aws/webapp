@@ -10,7 +10,7 @@ pipeline {
 	}
 	environment {
 		tag = ""$BUILD_ID""
-		port = ""100$BUILD_ID""
+		
 	}
 	stages {
 		stage ('SCM Checkout') {
@@ -34,7 +34,7 @@ pipeline {
 			steps {
 				withCredentials([string(credentialsId: 'dockerpwd', variable: 'docker')]) {
 				sh "docker login -u akash7775 -p ${docker}"
-                sh 'docker push akash7775/mytomcat:$tag'
+                		sh 'docker push akash7775/mytomcat:$tag'
 			}
 			}
 		}
